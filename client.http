@@ -1,0 +1,88 @@
+
+@email=asd3@asd.com
+@password = asd@asd.com!@#231A
+
+
+
+### register
+# @name postRegister
+POST http://127.0.0.1:5000/register
+Content-Type: application/json
+
+{
+    "email": "{{email}}",
+    "password": "{{password}}"
+}
+
+###
+@id = {{postRegister.response.body.id}}
+
+### login
+# @name postLogin
+POST http://127.0.0.1:5000/login
+Content-Type: application/json
+
+{
+    "email": "{{email}}",
+    "password": "{{password}}"
+}
+
+###
+@token = {{postLogin.response.body.token}}
+### 
+
+GET http://127.0.0.1:5000/users/{{id}}
+Content-Type: application/json
+
+### 
+
+GET http://127.0.0.1:5000/users/5
+Content-Type: application/json
+
+### 
+DELETE http://127.0.0.1:5000/users/{{id}}
+Content-Type: application/json
+Token: {{token}}
+
+
+###
+
+POST http://127.0.0.1:5000/adverts
+Content-Type: application/json
+Token: {{token}}
+
+{
+    "title": "4",
+    "description": "1"
+}
+
+###
+
+###
+
+PATCH http://127.0.0.1:5000/adverts/6
+Content-Type: application/json
+Token: {{token}}
+
+{
+    "title": "4",
+    "description": "asdasdf"
+}
+
+###
+
+
+GET http://127.0.0.1:5000/adverts/3
+Content-Type: application/json
+
+
+
+###
+
+DELETE http://127.0.0.1:5000/adverts/3
+Content-Type: application/json
+Token: {{token}}
+
+
+###
+
